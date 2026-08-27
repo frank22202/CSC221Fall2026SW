@@ -25,3 +25,6 @@ Point::Point(double x, double y)
     cout << "(" << xCoord << "," << yCoord << ")" << endl;
 }
 
+int main(){
+    Point p1 = Point(3,4);
+}
