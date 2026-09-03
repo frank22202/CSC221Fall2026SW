@@ -1,5 +1,6 @@
 /*--------------------------------------------------*/
 /* Program chapter2_7                               */
+/*                                                  */
 /*            9/1/2026                                      */
 /* This program prints the system limitations.      */
 #include<iostream>

@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int score;
+    cout << "Enter the score:";
+    cin >> score;
+
+    if(score < 60){
+        cout << "Fail" << endl;
+    }else{
+        cout << "Pass" << endl; 
+    }
+
+    cout << "Goodbye";
+    return 0;
+}

@@ -28,3 +28,4 @@ Point::Point(double x, double y)
 int main(){
     Point p1 = Point(3,4);
 }
+}
