@@ -1,36 +1,39 @@
 #include <iostream>
 #include <string>
-using namespace std;
 
-int main(){
-    int highwayNumber{0};
-    std::string direction, type;
-    cout << "Enter highway number:" << endl;    
-    cin >> highwayNumber;
-
-    if(highwayNumber % 100 == 0){
-        cout << "I-" << highwayNumber << " is not a valid interstate highway number." << endl;
-        return 1;
+void analyzeHighway(int number) {
+    // Check for valid overall range (1 to 999, excluding multiples of 100)
+    if (number <= 0 || number >= 1000 || number % 100 == 0) {
+        std::cout << number << " is not a valid highway number.\n";
+        return;
     }
 
-    if(highwayNumber >= 1 && highwayNumber <= 99){
-        type = "primary";
-    }else if(highwayNumber >= 100 && highwayNumber <= 999){
-        type = "auxiliary";
-    }else{
-        cout << "I-" << highwayNumber << " is not a valid interstate highway number." << endl;
-        return 1;
-    }
-    int highwayDirection = highwayNumber % 2;
-    
-    if(highwayDirection == 0){
-        direction = " east/west";
-    }else{
-        direction = " north/south";
-    }
-    int highwayserved = highwayNumber % 100;
-    cout << "I-" << highwayNumber << " is " <<type <<" serves I-" << highwayserved << "." << 
-    direction << endl;
+    // Determine primary highway and highway type
+    int primaryNumber = number % 100;
+    bool isAuxiliary = (number >= 100);
 
-      
+    // Determine direction based on the primary highway number
+    std::string direction = (primaryNumber % 2 == 1) ? "north/south" : "east/west";
+
+    // Output results
+    if (isAuxiliary) {
+        std::cout << "I-" << number << " is an auxiliary highway, serving I-" 
+                  << primaryNumber << ", which runs " << direction << ".\n";
+    } else {
+        std::cout << "I-" << number << " is a primary highway, running " 
+                  << direction << ".\n";
+    }
+}
+
+int main() {
+    int highwayNumber;
+    std::cout << "Enter a highway number: ";
+
+    if (std::cin >> highwayNumber) {
+        analyzeHighway(highwayNumber);
+    } else {
+        std::cout << "Invalid input. Please enter a valid integer.\n";
+    }
+
+    return 0;
 }
