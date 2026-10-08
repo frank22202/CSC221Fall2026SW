@@ -11,8 +11,7 @@ void passByValue(int* ptr){
 
 void passByRef(int*& ptr){
     *ptr = 99;
-    int num2 = 125;
-    ptr = &num2;
+    ptr = new int(125);
     cout << "[ref] ptr addr: " << ptr << " value: " << *ptr << endl;
 }
 
@@ -26,4 +25,6 @@ int main(){
 
     passByRef(ptr1);
     cout << "[main ref] after addr: " << ptr1 << " value: " << *ptr1 << endl;
+
+    return 0;
 }
